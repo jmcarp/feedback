@@ -1,9 +1,11 @@
+var crypto = require('crypto');
 var express = require('express');
 var passport = require('passport');
 var GitHubStrategy = require('passport-github').Strategy;
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var Redis = require('connect-redis')(session);
 var cors = require('cors');
 var GitHubApi = require('github');
 
@@ -32,13 +34,22 @@ var app = express();
 
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(session({secret: 'calici'}));
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: '' || crypto.randomBytes(32).toString('hex'),
+    store: process.env.REDIS_URL ?
+      new Redis({url: process.env.REDIS_URL}) :
+      null
+  })
+);
 app.use('/static', express.static(__dirname + '/static'));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(
   cors({
-    origin: process.env.ORIGIN,
+    origin: process.env.ORIGIN_URL,
     credentials: true
   })
 );

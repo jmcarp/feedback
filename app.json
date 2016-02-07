@@ -1,4 +1,6 @@
 {
+  "repository": "https://github.com/jmcarp/feedback",
+  "addons": ["heroku-redis:hobby-dev"],
   "env": {
     "GITHUB_USER": {
       "description": "GitHub user who owns the target repo",
@@ -24,7 +26,7 @@
       "description": "Base URL of feedback application",
       "required": true
     },
-    "ORIGIN": {
+    "ORIGIN_URL": {
       "description": "Base URL of submitting application",
       "required": true
     }

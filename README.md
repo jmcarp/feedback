@@ -7,6 +7,10 @@
 * Create a GitHub developer application at https://github.com/settings/developers
 * Create a personal access token using the GitHub account that will be used to post anonymous issues at https://github.com/settings/tokens; the access token should have the `repo` scope
 
+## Set up Redis
+
+Redis is recommended for production use. Install on Mac OS using `brew install redis` or on Heroku using `heroku addons:create heroku-redis:hobby-dev`.
+
 ## Set up environment variables
 
 * `GITHUB_USER`: GitHub user who owns the target repo
@@ -15,7 +19,8 @@
 * `GITHUB_CLIENT_ID`: Client ID from GitHub developer application
 * `GITHUB_CLIENT_SECRET`: Client secret from GitHub developer application
 * `BASE_URL`: Base URL of feedback application
-* `ORIGIN`: Base URL of submitting application
+* `ORIGIN_URL`: Base URL of submitting application
+* `REDIS_URL`: URL of Redis server; set automatically on Heroku
 
 ## Set up feedback widget
 
