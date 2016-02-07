@@ -20,7 +20,7 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: '/auth/callback'
+      callbackURL: process.env.BASE_URL + '/auth/callback'
     },
     function(accessToken, refreshToken, profile, done) {
       done(null, {token: accessToken, refreshToken: refreshToken, profile: profile});

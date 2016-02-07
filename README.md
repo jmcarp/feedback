@@ -14,11 +14,12 @@
 * `GITHUB_TOKEN`: Personal access token used for anonymous submissions
 * `GITHUB_CLIENT_ID`: Client ID from GitHub developer application
 * `GITHUB_CLIENT_SECRET`: Client secret from GitHub developer application
+* `BASE_URL`: Base URL of feedback application
 * `ORIGIN`: Base URL of submitting application
 
 ## Set up feedback widget
 
-* Create an HTML form representing the feedback widget; see [example](example.html) for expected markup
+* Create an HTML form representing the feedback widget; see [example.html](example.html) for expected markup
 * Create a toggle button that will be used to open and close the feedback widget
 * Include [widget.js](widget.js) in your page
 * Initialize the feedback widget, passing it DOM nodes for the feedback widget, the toggle element, and the URL of the application
