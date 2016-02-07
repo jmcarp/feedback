@@ -11,7 +11,7 @@
       "required": true
     },
     "GITHUB_TOKEN": {
-      "description": "https://frozen-dusk-81360.herokuapp.com",
+      "description": "Personal access token used for anonymous submissions",
       "required": true
     },
     "GITHUB_CLIENT_ID": {

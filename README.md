@@ -1,5 +1,7 @@
 # feedback
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 **feedback** allows users to submit comments on web applications via GitHub issues. Users may authenticate via GitHub to submit issues using their own accounts, or may submit issues anonymously through a GitHub bot. **feedback** consists of two components: a server-side application that submits issues to GitHub, and a client-side widget that allows users to authenticate and submit issues from your application.
 
 ## Set up GitHub
