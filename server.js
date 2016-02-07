@@ -20,7 +20,7 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: process.env.GITHUB_CALLBACK_URL
+      callbackURL: '/auth/callback'
     },
     function(accessToken, refreshToken, profile, done) {
       done(null, {token: accessToken, refreshToken: refreshToken, profile: profile});
@@ -38,7 +38,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(
   cors({
-    origin: process.env.FEEDBACK_ORIGIN,
+    origin: process.env.ORIGIN,
     credentials: true
   })
 );
@@ -68,12 +68,12 @@ app.post('/issue', function(req, res) {
     type: 'oauth',
     token: req.isAuthenticated() ?
       req.user.token :
-      process.env.FEEDBACK_TOKEN
+      process.env.GITHUB_TOKEN
   });
   github.issues.create(
     {
-      user: process.env.FEEDBACK_USER,
-      repo: process.env.FEEDBACK_REPO,
+      user: process.env.GITHUB_USER,
+      repo: process.env.GITHUB_REPO,
       title: req.body.title,
       body: req.body.body
     },
