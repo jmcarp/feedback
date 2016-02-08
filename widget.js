@@ -22,8 +22,9 @@ function Feedback(container, toggle, url) {
 }
 
 Feedback.prototype.show = function() {
-  if (!this.user) {
+  if (!this.pinged) {
     this.ping();
+    this.pinged = true;
   }
   this.container.style.display = '';
 };
@@ -54,21 +55,20 @@ Feedback.prototype.ping = function() {
 };
 
 Feedback.prototype.login = function() {
-  var self = this;
-  if (self.popup) {
-    self.popup.close();
+  if (this.popup) {
+    this.popup.close();
   }
-  self.popup = window.open(this.url + '/auth', 'Login', 'resizeable=true, width=1050, height=500');
+  this.popup = window.open(this.url + '/auth', 'Login', 'resizeable=true, width=1050, height=500');
   if (window.focus) {
     this.popup.focus();
   }
   var timer = window.setInterval(
     function() {
-      if (!self.popup || self.popup.closed) {
+      if (!this.popup || this.popup.closed) {
         window.clearInterval(timer);
-        self.ping();
+        this.ping();
       }
-    },
+    }.bind(this),
     100
   );
 };
