@@ -1,16 +1,22 @@
 <html>
 <head>
   <script src="widget.js"></script>
+  <link rel="stylesheet" href="widget.css">
 </head>
 <body>
   Feedback example
   <div id="feedback-toggle">Toggle</div>
   <div id="feedback">
+    <div>
+      <span id="feedback-close">Close</span>
+    </div>
     <form>
       <textarea name="Comments"></textarea>
-      <button id="feedback-submit" type="submit">Submit</button>
-      <button id="feedback-login" type="button">Log in</button>
-      <button id="feedback-logout" type="button">Log out</button>
+      <div>
+        <button id="feedback-submit" type="submit">Submit</button>
+        <button id="feedback-login" type="button">Log in</button>
+        <button id="feedback-logout" type="button">Log out</button>
+      </div>
     </form>
     <div id="feedback-message"></div>
   </div>

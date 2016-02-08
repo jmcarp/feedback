@@ -4,6 +4,7 @@ function Feedback(container, toggle, url) {
 
   this.elms = {
     form: this.container.querySelector('form'),
+    close: this.container.querySelector('#feedback-close'),
     login: this.container.querySelector('#feedback-login'),
     logout: this.container.querySelector('#feedback-logout'),
     submit: this.container.querySelector('#feedback-submit'),
@@ -11,6 +12,7 @@ function Feedback(container, toggle, url) {
   };
 
   toggle.addEventListener('click', this.toggle.bind(this));
+  this.elms.close.addEventListener('click', this.hide.bind(this));
   this.elms.login.addEventListener('click', this.login.bind(this));
   this.elms.logout.addEventListener('click', this.logout.bind(this));
   this.elms.submit.addEventListener('click', this.submit.bind(this));
