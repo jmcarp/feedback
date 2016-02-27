@@ -1,4 +1,4 @@
-function Feedback(container, toggle, url) {
+var Feedback = module.exports = function(container, toggle, url) {
   this.container = container;
   this.url = url;
 
@@ -19,7 +19,7 @@ function Feedback(container, toggle, url) {
 
   this.hide();
   this.clearUser();
-}
+};
 
 Feedback.prototype.show = function() {
   if (!this.pinged) {
@@ -27,10 +27,12 @@ Feedback.prototype.show = function() {
     this.pinged = true;
   }
   this.container.style.display = '';
+  this.container.setAttribute('aria-hidden', 'false');
 };
 
 Feedback.prototype.hide = function() {
   this.container.style.display = 'none';
+  this.container.setAttribute('aria-hidden', 'true');
 };
 
 Feedback.prototype.toggle = function() {
