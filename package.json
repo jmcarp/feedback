@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "license": "MIT",
+  "scripts": {
+    "test": "karma start",
+    "test-single": "karma start --single-run"
+  },
   "dependencies": {
     "body-parser": "^1.14.2",
     "connect-redis": "^3.0.2",
