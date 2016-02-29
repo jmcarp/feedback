@@ -87,15 +87,15 @@ Feedback.prototype.logout = function() {
 
 Feedback.prototype.setUser = function(user) {
   this.user = user;
-  this.elms.login.style.display = 'none';
-  this.elms.logout.style.display = '';
+  hide(this.elms.login);
+  show(this.elms.logout);
   this.elms.submit.textContent = 'Submit as ' + this.user.username;
 };
 
 Feedback.prototype.clearUser = function() {
   this.user = null;
-  this.elms.login.style.display = '';
-  this.elms.logout.style.display = 'none';
+  show(this.elms.login);
+  hide(this.elms.logout);
   this.elms.submit.textContent = 'Submit';
 };
 
@@ -133,3 +133,13 @@ Feedback.prototype.getBody = function() {
     '* User agent: ' + window.navigator.userAgent;
   return body;
 };
+
+function hide(elm) {
+  elm.style.display = 'none';
+  elm.setAttribute('aria-hidden', 'true');
+}
+
+function show(elm) {
+  elm.style.display = '';
+  elm.setAttribute('aria-hidden', 'false');
+}
